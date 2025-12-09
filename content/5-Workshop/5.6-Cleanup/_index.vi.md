@@ -16,7 +16,7 @@ Trong lab này, bạn đã học về các mô hình kiến trúc để truy c�
 
 #### Dọn dẹp
 
-1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xóa bằng cách nhập từ khóa "delete".
+1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xoá bằng cách nhập từ khoá "delete".
 
 ![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
 
@@ -24,14 +24,14 @@ Trong lab này, bạn đã học về các mô hình kiến trúc để truy c�
 
 ![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
 
-4.Mở console của CloudFormation và xóa hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
+4.Mở console của CloudFormation và xoá hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
 
 - PLOnpremSetup
 - PLCloudSetup
 
 ![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
 
-5. Xóa các S3 bucket
+5. Xoá các S3 bucket
 
 - Mở bảng điều khiển S3
 - Chọn bucket chúng ta đã tạo cho lab, nhấp chuột và xác nhận là empty. Nhấp Delete và xác nhận delete.

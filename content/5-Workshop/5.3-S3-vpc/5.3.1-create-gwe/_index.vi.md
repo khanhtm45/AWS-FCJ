@@ -31,11 +31,9 @@ Bạn sẽ thấy 6 điểm cuối VPC hiện có hỗ trợ AWS Systems Manager
 
 ![endpoint](/images/5-Workshop/5.3-S3-vpc/vpc.png)
 
-- Đối với Policy, để tùy chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
+- Đối với Policy, để tuỳ chọn mặc định là Full access để cho phép toàn quyền truy cập vào dịch vụ. Bạn sẽ triển khai VPC endpoint policy trong phần sau để chứng minh việc hạn chế quyền truy cập vào S3 bucket dựa trên các policies.
 
 ![endpoint](/images/5-Workshop/5.3-S3-vpc/policy.png)
 
 - Không thêm tag vào VPC endpoint.
 - Click Create endpoint, click x sau khi nhận được thông báo tạo thành công.
-
-![endpoint](/images/5-Workshop/5.3-S3-vpc/complete.png)

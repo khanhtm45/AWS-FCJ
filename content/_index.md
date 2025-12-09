@@ -31,7 +31,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 12/08/2025 to 12/11/2025
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/images/z7174544920024_f1db9edb9978f013e70fe36006918cac.jpg)
 
 ### Report Content
 

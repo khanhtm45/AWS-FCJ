@@ -19,7 +19,7 @@ In this section you will create a VPC endpoint policy that restricts access to t
 1. Start a new AWS Session Manager session on the instance named Test-Gateway-Endpoint. From the session, verify that you can list the contents of the bucket you created in Part 1: Access S3 from VPC:
 
 ```
-aws s3 ls s3://\<your-bucket-name\>
+aws s3 ls s3://<your-bucket-name>
 ```
 
 ![test](/images/5-Workshop/5.5-Policy/test1.png)
