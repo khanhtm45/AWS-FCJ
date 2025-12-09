@@ -7,22 +7,22 @@ pre : " <b> 5.4. </b> "
 ---
 
 **1. Go to Lambda**
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image.png)
 - You can code with Lambda using languages as shown in the image. In this workshop, we will use Node.js
 **2. Click on Create function**
 - Fill in the function name and select the runtime type
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-1.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-1.png)
 - Click on "Change default execution role", select "existing role", then click on the role you created earlier for the workshop
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-2.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-2.png)
 - Click on "Create function"
 
 **3. Set up function**
 - Go to the Configuration tab
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-3.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-3.png)
 - Increase memory to 500MB and timeout to 2 minutes
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-4.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-4.png)
 - Go to the Code tab and paste this code:
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-5.png)
+![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-5.png)
 - Click the Deploy button
 
 ````javascript

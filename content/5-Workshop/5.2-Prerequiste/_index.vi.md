@@ -9,4 +9,4 @@ pre: " <b> 5.2. </b> "
 #### IAM permissions
 
 Tạo IAM role với Permissions policies là **AmazonBedrockFullAccess** và **CloudWatchLogsFullAccess**
-\*\*\*\*![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.2-Prerequisite/image.png)
+\*\*\*\*![alt text](https://github.com/khanhtm45.io/AWS-FCJ/images/5-Workshop/5.2-Prerequisite/image.png)
