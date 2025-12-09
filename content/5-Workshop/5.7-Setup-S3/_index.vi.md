@@ -1,12 +1,15 @@
 ---
-title : "Chuẩn bị s3"
+title: "Chuẩn bị s3"
 date: 2025-09-09
-weight : 7
-chapter : false
-pre : " <b> 5.7. </b> "
+weight: 7
+chapter: false
+pre: " <b> 5.7. </b> "
 ---
+
 **1. Tạo một file html để deploy lên s3**
+
 - Thay InvokeURL/resourceName trong đoạn code dưới bằng invoke URL của bạn
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -163,25 +166,28 @@ pre : " <b> 5.7. </b> "
 </body>
 </html>
 ```
+
 **2. Vào s3**
+
 - Chọn create bucket
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image.png)
 - Tạo tên cho bucket
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-1.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-1.png)
 - bỏ Block public (Theo best practice, bạn nên để bucket private, nhưng trong workshop này, mình sẽ để public để có thể test dễ dàng)
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-2.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-2.png)
 - Nhấp chuột vào create bucket
-**3. Vào bucket bạn vừa tạo**
+  **3. Vào bucket bạn vừa tạo**
 - Chọn tab properties
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-3.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-3.png)
 - Nhấp chuột vào edit trong static wed hosting
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-4.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-4.png)
 - Chọn enable
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-5.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-5.png)
 - Chọn save changes
 - Vào tab Permissio và chọn edit trong Bucket policy
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-6.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-6.png)
 - Dán đoạn code này vào bucket policy (đổi your-bucket-name bằng tên bucket của bạn)
+
 ```
 {
     "Version": "2012-10-17",
@@ -196,12 +202,14 @@ pre : " <b> 5.7. </b> "
     ]
   }
 ```
+
 ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-7.png)
+
 - Nháy chuột vào nút save change
 - Vào tab object upload file html của bạn lên s3
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-8.png)
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-9.png)
+  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-8.png)
+  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-9.png)
 - Nhấp chuột vào object url để vào trang html đã deploy
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-10.png)
+  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-10.png)
 - Vậy là bạn đã thành công
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-11.png)
+  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-11.png)
