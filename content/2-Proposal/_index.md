@@ -37,7 +37,7 @@ Leaf is an e-commerce platform specializing in fashion products for men and wome
 ## 2.1 Technical Architecture Diagram
 
 The platform applies an **AWS Serverless architecture** to manage data.  
-![Architecture Diagram](/images/2-Proposal/AWS1.drawio.png)
+![Architecture Diagram](https://khanhtm45.github.io/AWS-FCJ/images/2-Proposal/AWS1.drawio.png)
 
 ### Components and Roles in the AWS Architecture
 

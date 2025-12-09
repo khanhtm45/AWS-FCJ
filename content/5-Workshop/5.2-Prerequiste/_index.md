@@ -10,4 +10,4 @@ pre: " <b> 5.2. </b> "
 
 Create an IAM role with Permissions policies: **AmazonBedrockFullAccess** and **CloudWatchLogsFullAccess**
 
-![alt text](/images/5-Workshop/5.2-Prerequisite/image.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.2-Prerequisite/image.png)
