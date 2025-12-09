@@ -6,12 +6,14 @@ chapter: false
 ---
 
 # Internship Report
+
 ### Student Information:
+
 &emsp; **Full Name:** Trương Minh Khánh
 
 &emsp; **Phone Number:** 8948333703
 
-&emsp; **Email:**  khanhtmse182131@fpt.edu.vn
+&emsp; **Email:** khanhtmse182131@fpt.edu.vn
 
 &emsp; **University:** FPT University
 
@@ -25,9 +27,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 08/09/2025 to 28/11/2025
 
-![Your Profile Image](https://khanhtm45.github.io/AWS_FCJ/images/image.png)
-
-
+![Your Profile Image](https://khanhtm45.github.io/AWS-FCJ/images/khanh_ni.jpg)
 
 ### Report Contents
 

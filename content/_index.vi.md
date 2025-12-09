@@ -6,7 +6,9 @@ chapter: false
 ---
 
 # Báo cáo thực tập
+
 ### Thông tin sinh viên:
+
 &emsp; **Họ và tên:** Trương Minh Khánh
 
 &emsp; **Số điện thoại:** 8948333703
@@ -26,8 +28,6 @@ chapter: false
 &emsp; **Thời gian thực tập:** Từ ngày 08/09/2025 đến ngày 28/11/2025
 
 ![Ảnh đại diện của bạn](https://khanhtm45.github.io/AWS-FCJ/images/khanh_ni.jpg)
-
-
 
 ### Nội dung báo cáo
 

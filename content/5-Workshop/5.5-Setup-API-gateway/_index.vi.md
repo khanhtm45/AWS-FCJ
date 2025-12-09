@@ -19,29 +19,29 @@ pre: " <b> 5.5 </b> "
 - Nhấp chuột vào create API
   **2. Tạo Resource**
 - Nhấp vào create resource
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-4.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-4.png)
 - Đặt tên resource và tick vào CORS
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-5.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-5.png)
 - Nhấp chuột vào nút create resource
   **3. Create method**
 - Nhấp chuột vào create method
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-6.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-6.png)
 - Chọn phương thức post và bật Lambda proxy integration
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-7.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-7.png)
 - Thêm ARN
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-8.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-8.png)
 - Nhấp chuột vào create method
   **4.deploy API**
 - Nhấp chuột vào deploy API
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-9.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-9.png)
 - Chọn new stage và đặt tên cho stage
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-10.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-10.png)
 - Nhấp chuột vào nút deploy
   **5. Test**
 - Sau khi tạo stage xong bạn sẽ có được Invoke URL
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-11.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-11.png)
 - Nhập invoke url để test trên postman với cú pháp invoke url/Tên resource, chọn phương thức post
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-12.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-12.png)
 - Nhập
 
   {
@@ -49,5 +49,5 @@ pre: " <b> 5.5 </b> "
   }
 
 - Sau khi Nhấp chuột vào send
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-13.png)
+  ![alt text](https://paperkite-master.github.io/AWS-FCJ/images/5-Workshop/5.5-Setup-API-gateway/image-13.png)
 - Vậy là bạn đã thành công

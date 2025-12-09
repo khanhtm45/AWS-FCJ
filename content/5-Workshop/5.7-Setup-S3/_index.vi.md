@@ -203,13 +203,13 @@ pre: " <b> 5.7. </b> "
   }
 ```
 
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-7.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-7.png)
 
 - Nháy chuột vào nút save change
 - Vào tab object upload file html của bạn lên s3
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-8.png)
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-9.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-8.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-9.png)
 - Nhấp chuột vào object url để vào trang html đã deploy
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-10.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-10.png)
 - Vậy là bạn đã thành công
-  ![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.7-Setup-S3/image-11.png)
+  ![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.7-Setup-S3/image-11.png)

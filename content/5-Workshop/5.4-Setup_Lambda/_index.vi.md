@@ -1,28 +1,24 @@
 ---
-title : "Chuẩn bị Lambda"
-date: 2025-09-09 
-weight : 4 
-chapter : false
-pre : " <b> 5.4. </b> "
+title: "Chuẩn bị Lambda"
+date: 2025-09-09
+weight: 4
+chapter: false
+pre: " <b> 5.4. </b> "
 ---
 
 **1. Vào Lambda**
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image.png)
-- Bạn có thể code với lambda bằng các ngôn ngữ như trong hình.Trong workshop này mình sẽ sử dụng ngôn ngữ Node.js
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image.png)
+
 **2. Nhấp chuột vào Create function**
-- Điền tên function, chọn kiểu runtime
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-1.png)
-- Nhấp chuột vào Change default execution role chọn existing role sau đó nhấp chuột vào role mà bạn đã tạo trước đó cho workshop
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-2.png)
-- Nhấp chuột vào create function
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-1.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-2.png)
 **3. Set up function**
-- Vào tab configuration
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-3.png)
-- Chỉnh memory lên 500mb và time out là 2m
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-4.png)
-- Vào tab code dán đoạn code này vào
-![alt text](https://paperkite-master.github.io/AWS_FCJ/images/5-Workshop/5.4-Setup_Lambda/image-5.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-3.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-4.png)
+![alt text](https://khanhtm45.github.io/AWS-FCJ/images/5-Workshop/5.4-Setup_Lambda/image-5.png)
+
 - Nhấp chuột vào nút deploy
+
 ```
 const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
@@ -40,7 +36,7 @@ const MAX_HISTORY_TURNS = 10;
 
 exports.handler = async (event) => {
     const startTime = Date.now();
-    
+
     console.log("Request received:", {
         sourceIp: event.requestContext?.identity?.sourceIp || event.requestContext?.http?.sourceIp,
         userAgent: event.requestContext?.identity?.userAgent || event.headers?.["user-agent"]
@@ -56,10 +52,10 @@ exports.handler = async (event) => {
         body = JSON.parse(event.body || "{}");
     } catch (e) {
         console.error("Invalid JSON:", e.message);
-        return { 
-            statusCode: 400, 
-            headers: CORS_HEADERS, 
-            body: JSON.stringify({ error: "Invalid JSON format" }) 
+        return {
+            statusCode: 400,
+            headers: CORS_HEADERS,
+            body: JSON.stringify({ error: "Invalid JSON format" })
         };
     }
 
@@ -67,26 +63,26 @@ exports.handler = async (event) => {
     const history = Array.isArray(body.history) ? body.history : [];
 
     if (!userMessage) {
-        return { 
-            statusCode: 400, 
-            headers: CORS_HEADERS, 
-            body: JSON.stringify({ error: "Message is required" }) 
+        return {
+            statusCode: 400,
+            headers: CORS_HEADERS,
+            body: JSON.stringify({ error: "Message is required" })
         };
     }
 
     if (userMessage.length > MAX_MESSAGE_LENGTH) {
-        return { 
-            statusCode: 400, 
-            headers: CORS_HEADERS, 
-            body: JSON.stringify({ 
-                error: `Message too long. Maximum ${MAX_MESSAGE_LENGTH} characters allowed.` 
-            }) 
+        return {
+            statusCode: 400,
+            headers: CORS_HEADERS,
+            body: JSON.stringify({
+                error: `Message too long. Maximum ${MAX_MESSAGE_LENGTH} characters allowed.`
+            })
         };
     }
 
     // Claude dùng messages format
     const messages = [];
-    
+
     const recentHistory = history.slice(-MAX_HISTORY_TURNS);
     for (const turn of recentHistory) {
         if (turn.user) {
@@ -96,10 +92,10 @@ exports.handler = async (event) => {
             messages.push({ role: "assistant", content: turn.assistant });
         }
     }
-    
+
     messages.push({ role: "user", content: userMessage });
 
-    
+
     const requestBody = {
         anthropic_version: "bedrock-2023-05-31",
         max_tokens: 512,
@@ -107,12 +103,12 @@ exports.handler = async (event) => {
         temperature: 0.7
     };
 
-   
+
     const modelId = "arn:aws:bedrock:us-east-1:756859458422:inference-profile/us.anthropic.claude-haiku-4-5-20251001-v1:0";
 
     try {
         console.log("Invoking Bedrock model:", modelId);
-        
+
         const command = new InvokeModelCommand({
             modelId,
             contentType: "application/json",
@@ -144,7 +140,7 @@ exports.handler = async (event) => {
         return {
             statusCode: 500,
             headers: CORS_HEADERS,
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 error: "Dịch vụ AI tạm thời không khả dụng. Vui lòng thử lại sau."
             })
         };
@@ -152,5 +148,6 @@ exports.handler = async (event) => {
 };
 
 ```
+
 **Tài liệu liên quan:**
 https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html

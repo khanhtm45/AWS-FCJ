@@ -1,126 +1,90 @@
 ---
-title: "Blog 1"
-date: 2025-09-09
+title: "Công bố Bản Xem trước Dành cho Nhà phát triển của DynamoDB Mapper cho Kotlin"
+date: 2024-10-30
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Công bố Bản Xem trước Dành cho Nhà phát triển của DynamoDB Mapper cho Kotlin
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+**Tác giả: Ian Botsford | ngày 30 tháng 10 năm 2024**
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Chúng tôi vui mừng thông báo về Bản Xem trước Dành cho Nhà phát triển của [DynamoDB Mapper cho Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/ddb-mapper.html). Thư viện cấp cao này cung cấp các cách thức hợp lý và tự nhiên cho các nhà phát triển ánh xạ dữ liệu giữa logic nghiệp vụ của họ được viết bằng Kotlin và các bảng của họ trong DynamoDB. DynamoDB Mapper hoạt động với hầu hết các data class Kotlin ngay từ đầu và cũng cung cấp các tính năng mạnh mẽ để mô hình hóa dữ liệu linh hoạt và xử lý các schema phức tạp hơn. DynamoDB Mapper là một phần của [AWS SDK cho Kotlin](https://aws.amazon.com/sdk-for-kotlin/) và sẽ được phát hành theo cùng lịch trình hàng ngày như các thành phần SDK khác.
 
----
+Bạn có thể thử nghiệm tính năng mới này bằng cách sử dụng plugin DynamoDB Mapper Schema Generator cho Gradle và chú thích các data class của bạn:
 
-## Hướng dẫn kiến trúc
+```kotlin
+@DynamoDbItem
+data class Planet(
+    @DynamoDbPartitionKey
+    val name: String,
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+    val radiusKilometers: Double,
+    val atmosphericGasses: List<String>,
+    val hasRings: Boolean,
+    val numberOfMoons: Int,
+)
+```
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+Đoạn code mẫu trên sẽ tự động tạo các item schema tại thời điểm build. Các schema này sau đó có thể được sử dụng để truy cập các item trong bảng DynamoDB dưới dạng các instance `Planet` như được trình bày trong đoạn code sau:
 
-**Kiến trúc giải pháp bây giờ như sau:**
+```kotlin
+val client = DynamoDbClient.fromEnvironment()
+val mapper = DynamoDbMapper(client)
+val planetsTable = mapper.getTable("all-planets", PlanetSchema)
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+val saturn = Planet(
+    name = "Saturn",
+    radiusKilometers = 60268.0,
+    atmosphericGasses = listOf("hydrogen", "helium", "methane"),
+    hasRings = true,
+    numberOfMoons = 146,
+)
 
----
+// Ghi đối tượng `saturn` vào bảng planets
+planetsTable.putItem { item = saturn }
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+// Lấy một instance Planet từ một item có key là "Jupiter"
+val jupiter = planetsTable.getItem("Jupiter").item
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+println(jupiter)
+// In ra "Planet(name=Jupiter, radiusKilometers=71492.0, ...)"
+```
 
----
+## Chức năng Xem trước
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+DynamoDB Mapper này đang được phát hành dưới dạng Bản Xem trước Dành cho Nhà phát triển, nghĩa là nó chưa hoàn thiện đầy đủ tính năng, có thể chứa lỗi và không phù hợp cho các khối lượng công việc sản xuất. Mục tiêu của Bản Xem trước Dành cho Nhà phát triển này là thu thập phản hồi sớm từ những người áp dụng nhiệt tình, điều này có thể dẫn đến việc thiết kế lại và thay đổi không tương thích ngược. Xem [chính sách bảo trì AWS SDK và Công cụ](https://docs.aws.amazon.com/sdkref/latest/guide/maint-policy.html#version-life-cycle) để biết thêm chi tiết về vòng đời sản phẩm.
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Bản Xem trước Dành cho Nhà phát triển ban đầu hỗ trợ các thao tác DynamoDB sau:
 
----
+- `deleteItem`
+- `getItem`
+- `putItem`
+- `queryPaginated`
+- `scanPaginated`
 
-## The pub/sub hub
+Nó cũng hỗ trợ các loại biểu thức DynamoDB sau:
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+- Biểu thức lọc (Filter expressions)
+- Biểu thức điều kiện khóa (Key condition expressions)
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Hỗ trợ cho nhiều thao tác hơn như `updateItem` và `createTable`, cùng với hỗ trợ cho nhiều loại biểu thức hơn như biểu thức cập nhật (update expressions) và biểu thức chiếu (projection expressions), sẽ được thêm vào trước khi DynamoDB Mapper thoát khỏi Bản Xem trước Dành cho Nhà phát triển.
 
----
+## Các bước tiếp theo
 
-## Core microservice
+Để bắt đầu với DynamoDB Mapper cho Kotlin, hãy xem các liên kết sau:
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+- [Hướng dẫn bắt đầu](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/ddb-mapper.html)
+- [Tài liệu tham khảo API](https://sdk.amazonaws.com/kotlin/api/latest/dynamodb-mapper/aws.sdk.kotlin.hll.dynamodbmapper/index.html)
+- [Kho lưu trữ GitHub của chúng tôi](https://github.com/awslabs/aws-sdk-kotlin)
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
-
----
-
-## Front door microservice
-
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Hãy cho chúng tôi biết tính năng mới này hoạt động như thế nào đối với bạn và liệu nó có đáp ứng nhu cầu của bạn hay không. Nếu bạn tò mò về điều gì đó, hãy đăng hoặc tham gia [thảo luận trong kho GitHub của chúng tôi](https://github.com/awslabs/aws-sdk-kotlin/discussions). Nếu bạn tìm thấy lỗi, vui lòng [gửi issue trong kho GitHub của chúng tôi](https://github.com/awslabs/aws-sdk-kotlin/issues/new/choose).
 
 ---
 
-## Staging ER7 microservice
+**Thẻ:** Amazon DynamoDB, aws-sdk, Kotlin, SDK
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+**Tác giả:** Ian Botsford - Ian là nhà phát triển làm việc trên AWS SDK cho Kotlin. Anh ấy đam mê làm cho AWS dễ sử dụng thông qua các SDK trôi chảy và tự nhiên. Bạn có thể tìm thấy anh ấy trên GitHub tại [@ianbotsf](https://github.com/ianbotsf).
 
----
-
-## Tính năng mới trong giải pháp
-
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+**Nguồn:** [AWS Developer Tools Blog](https://aws.amazon.com/blogs/developer/announcing-dev-preview-of-dynamodb-mapper-for-kotlin/)
