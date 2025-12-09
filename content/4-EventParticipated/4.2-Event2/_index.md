@@ -1,126 +1,71 @@
 ---
 title: "Event 2"
-date: 2025-09-09
+date: "2025-10-01"
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Summary Report: “AI-powered planning, design, and coding for modern software development”
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+**Overview:** An **on-demand webinar** from **AWS Marketplace** focused on bringing **Generative AI** into **planning – design – coding** across the SDLC to accelerate collaboration, automate testing, generate docs/diagrams, and enforce security via a **zero-trust** approach. (Source: AWS Marketplace webinar page – *On-demand*).
+
+---
 
 ### Event Objectives
+- Explain how **GenAI** reshapes **planning, design, and coding** on AWS.  
+- Show how to integrate GenAI into **Agile/Scrum**: sprint planning, backlog refinement, **test generation**.  
+- Demonstrate creating **UI/UX mock-ups**, **architecture diagrams**, and technical docs with AI for faster alignment.  
+- Share **security/zero-trust** practices for **code analysis** and **architecture reviews**.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+---
 
 ### Speakers
+- **Harrison Kirby** — Ambassador, **DevOps Institute**  
+- **Ronak Shah** — **Principal Solutions Architect**, **AWS**
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+---
 
-### Key Highlights
+### Highlights
+#### 1) GenAI across the SDLC
+- **Planning & Design:** AI proposes architecture options and generates **diagrams/docs**; supports early decision-making.  
+- **Coding & Testing:** **Real-time code suggestions**, **unit/integration test** generation, fewer fix-rework cycles.  
+- **Collaboration:** Rapid **UI/UX mock-ups** to align architects, developers, and designers.
 
-#### Identifying the drawbacks of legacy application architecture
+#### 2) “Attendees will learn” (from the webinar page)
+- Embedding GenAI into **Agile workflows** for **sprint planning, backlog refinement, test generation**.  
+- Using **AI-generated visuals/diagrams/code** to accelerate cross-functional collaboration.  
+- Applying **security frameworks** and **zero-trust principles** with AI for **architecture reviews** and **code analysis**.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+#### 3) Practical tie-ins (from your supporting document)
+- **Governance Copilot:** flags **scope creep/budget drift**; auto-creates **minutes** and **risk registers**.  
+- **Smarter Estimation:** learns from historical projects; outputs **best/worst-case** ranges, not a single point.  
+- **Scope Clarifier:** NLP capture/analysis to detect **ambiguous/conflicting/missing** requirements before scope lock.  
+- **Dependency Radar:** AI-graph mapping of **team/vendor/module** dependencies to avoid bottlenecks.  
+- **Auto-documentation:** keeps **UML/sequence/workflow/API docs** in sync with code/design changes.
 
-#### Transitioning to modern application architecture – Microservices
-
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
-
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
-
-#### Domain-Driven Design (DDD)
-
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
-
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
 ### Key Takeaways
+- **Vision → Value:** anchor every GenAI effort to clear **KPIs/ROI** (speed, cost, quality).  
+- **Data-first:** **retrieval/embedding/rerank** quality drives output quality.  
+- **Security-by-design:** **zero-trust**, access control, PII protection, **content moderation**, **cost/token** visibility.  
+- **Observability & Eval:** tracing, online/offline evaluation, continuous **feedback loops**.
 
-#### Design Mindset
-
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
-
-#### Technical Architecture
-
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
-
-#### Modernization Strategy
-
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+---
 
 ### Applying to Work
+- Pilot 1–2 **GenAI use cases** over 6–8 weeks with **go/no-go gates** (quality, latency, cost/interaction, adoption).  
+- Enable a **governance copilot** (scope/budget alerts) and **auto-documentation** from the first sprint.  
+- Standardize **estimations** with historical data; publish **2–3 scenarios** instead of one number.  
+- Use a **scope clarifier** for all requirement sessions; run a **dependency radar** before major design milestones.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+---
 
 ### Event Experience
-
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
-
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
-
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
-
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
-
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+The webinar shows how to **operationalize AI**—from documentation/architecture to code/test and security—helping teams reduce process friction and shorten lead time while maintaining safety and scalability on AWS.
 
 #### Some event photos
-*Add your event photos here*  
+*Add your screenshots/photos here*
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> In short, the session outlines **measurable GenAI steps** across the SDLC: AI does the heavy lifting, while **humans supervise and decide**.

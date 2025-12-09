@@ -1,125 +1,71 @@
 ---
 title: "Event 2"
-date: 2025-09-09
+date: "2025-10-01"
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Báo cáo tóm tắt: “AI-powered planning, design, and coding for modern software development”
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+**Tổng quan:** Webinar **on-demand** của **AWS Marketplace** tập trung cách đưa **Generative AI** vào **kế hoạch – thiết kế – lập trình** trong SDLC để tăng tốc cộng tác, tự động hoá kiểm thử, sinh tài liệu/kiến trúc và đảm bảo bảo mật theo **zero-trust**. (Nguồn: trang webinar chính thức của AWS Marketplace – *On-demand*).  
 
-### Mục Đích Của Sự Kiện
+---
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+### Mục tiêu sự kiện
+- Giải thích **GenAI** đang thay đổi **planning, design, coding** như thế nào trên AWS.  
+- Hướng dẫn tích hợp GenAI vào **Agile/Scrum**: sprint planning, backlog refinement, **test generation**.  
+- Minh hoạ sinh **UI/UX mock-ups**, **sơ đồ kiến trúc**, và tài liệu kỹ thuật bằng AI để tăng tốc cộng tác.  
+- Chia sẻ khung **bảo mật/zero-trust** và thực hành an toàn cho **code analysis** và **architecture reviews**.
 
-### Danh Sách Diễn Giả
+---
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+### Diễn giả
+- **Harrison Kirby** — Ambassador, **DevOps Institute**  
+- **Ronak Shah** — **Principal Solutions Architect**, **AWS**
 
-### Nội Dung Nổi Bật
+---
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+### Nội dung nổi bật
+#### 1) GenAI trong SDLC
+- **Planning & Design**: AI đề xuất phương án kiến trúc, sinh **diagram/doc**; hỗ trợ quyết định sớm.  
+- **Coding & Testing**: **gợi ý mã theo thời gian thực**, sinh **unit/integration tests**, giảm vòng lặp sửa lỗi.  
+- **Collaboration**: tạo **UI/UX mock-ups** nhanh để thống nhất yêu cầu giữa architect–dev–designer.  
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+#### 2) “Attendees will learn” (từ trang webinar)
+- Cách tích hợp GenAI vào **Agile workflows** cho **sprint planning, backlog refinement, test generation**.  
+- Kỹ thuật dùng **AI-generated visuals/diagrams/code** để tăng tốc cộng tác đa vai trò.  
+- Áp dụng **security frameworks** và **zero-trust principles** với AI cho **architecture reviews** & **code analysis**.  
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### 3) Liên hệ thực tiễn (từ tài liệu bạn gửi)
+- **Governance Copilot**: cảnh báo **scope creep/budget drift**, tự tạo **biên bản** & **risk register**.  
+- **Smarter Estimation**: học dữ liệu dự án cũ để ước lượng theo **best/worst-case** thay vì 1 con số.  
+- **Scope Clarifier**: ghi & phân tích họp bằng NLP, phát hiện yêu cầu **mơ hồ/xung đột/thiếu** trước khi khóa scope.  
+- **Dependency Radar**: lập bản đồ **phụ thuộc** team/vendor/module bằng AI-graph để tránh tắc nghẽn.  
+- **Auto-documentation**: đồng bộ **UML/sequence/workflow/API docs** với thay đổi code/thiết kế theo thời gian thực.
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+---
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+### Bài học chính (Key Takeaways)
+- **Vision → Value**: gắn mọi thử nghiệm GenAI với **KPI/ROI** cụ thể (tốc độ, chi phí, chất lượng).  
+- **Data-first**: chất lượng **retrieval/embedding/rerank** quyết định chất lượng đầu ra.  
+- **Security-by-design**: **zero-trust**, phân quyền truy cập, PII protection, **content moderation**, theo dõi **cost/tokens**.  
+- **Observability & Eval**: tracing, đánh giá online/offline, **feedback loop** liên tục.  
 
-#### Domain-Driven Design (DDD)
+---
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Ứng dụng vào công việc
+- Thí điểm 1–2 **use case GenAI** trong 6–8 tuần với **go/no-go gates** (quality, latency, cost/interaction, adoption).  
+- Bật **governance copilot** (cảnh báo scope/budget) và **auto-documentation** ngay từ sprint đầu.  
+- Chuẩn hoá **estimation** bằng dữ liệu lịch sử; công bố **2–3 kịch bản** thay vì một con số.  
+- Dùng **scope clarifier** cho mọi phiên yêu cầu; chạy **dependency radar** trước mốc thiết kế lớn.  
 
-#### Event-Driven Architecture
+---
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+### Trải nghiệm sự kiện
+Webinar cho thấy cách **đưa AI vào thực thi**: từ tài liệu/kiến trúc → code/test → bảo mật, giúp đội ngũ giảm ma sát quy trình và rút ngắn lead time mà vẫn giữ tiêu chuẩn an toàn và khả năng mở rộng trên AWS.
 
-#### Compute Evolution
+#### Một số hình ảnh sự kiện
+*Thêm ảnh/screenshot của bạn tại đây*
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
-
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
-
-### Những Gì Học Được
-
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+> Tóm lại, webinar cung cấp **các bước áp dụng GenAI có thể đo lường** trong SDLC, kết hợp AI để làm – **con người giám sát và quyết định**.
