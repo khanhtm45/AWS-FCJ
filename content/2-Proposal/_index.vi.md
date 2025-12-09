@@ -32,7 +32,7 @@ Leaf là một nền tảng thương mại điện tử chuyên về các sản 
 
 ## 2.1 Sơ đồ kiến trúc kỹ thuật
 Nền tảng áp dụng **kiến trúc AWS Serverless** để quản lý dữ liệu.  
-![](https://github.com/khanhtm45/AWS-FCJ.io/AWS_FCJ/images/2-Proposal/AWS1.drawio.png)
+![](https://github.com/khanhtm45/AWS-FCJ.io/images/2-Proposal/AWS1.drawio.png)
 
 ### Các thành phần và vai trò trong kiến trúc AWS
 
